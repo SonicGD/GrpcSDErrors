@@ -22,7 +22,7 @@ builder.Services.AddGrpcClient<Greeter.GreeterClient>(options => { options.Addre
     {
         options.Credentials = ChannelCredentials.SecureSsl;
         options.ServiceConfig = new ServiceConfig();
-        options.ServiceConfig.LoadBalancingConfigs.Add(new RoundRobinConfig());
+        options.ServiceConfig.LoadBalancingConfigs.Add(new RoundRobinConfig()); // remove or comment to fix "errors"
     });
 
 var app = builder.Build();
